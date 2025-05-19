@@ -7,7 +7,9 @@
 # Enlaces a Github
 -[student-catalog-service](https://github.com/planetWeb252/student-catalog-service)  
 -[grades-data-service](https://github.com/planetWeb252/grades-data-service)  
--[student-info-service](https://github.com/planetWeb252/student-info-service)
+-[student-info-service](https://github.com/planetWeb252/student-info-service)  
+-[discovery-service](https://github.com/planetWeb252/discovery-service)
+
 
 [//]: # (desde aqui ahy que borrar)
 ## Introduction
