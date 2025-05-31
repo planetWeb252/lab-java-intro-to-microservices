@@ -1,72 +1,65 @@
 
 
 
-![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
+
 
 # LAB Java | Intro to Microservices
-# Enlaces a Github
+
+## Descripción
+
+Este laboratorio tiene como objetivo consolidar los conocimientos sobre arquitectura de microservicios usando **Spring Boot**, **Spring Cloud Eureka** y **RestTemplate**. Consiste en desarrollar una aplicación compuesta por varios microservicios que se comunican entre sí para gestionar información de estudiantes, cursos y calificaciones.
+
+---
+# Enlaces a Github de los micro Servicios
 -[student-catalog-service](https://github.com/planetWeb252/student-catalog-service)  
 -[grades-data-service](https://github.com/planetWeb252/grades-data-service)  
 -[student-info-service](https://github.com/planetWeb252/student-info-service)  
 -[discovery-service](https://github.com/planetWeb252/discovery-service)
 
+## 🛠️ Tecnologías utilizadas
+Java 21
 
-[//]: # (desde aqui ahy que borrar)
-## Introduction
+Spring Boot
 
-We have just learned how to create an application that works with microservices and use Rest Template to call external APIs so let's practice a bit more.
+Spring Cloud Gateway
 
-<br>
+Eureka Client
 
-## Requirements
+Maven
 
-1. Fork this repo.
-2. Clone this repo.
-3. Add your instructor and the class graders as collaborators to your repository. If you are unsure who your class graders are, ask your instructor or refer to the day 1 slide deck.
-4. In the repository, create a Java project and add the code for the following prompts.
+## 🧪 Postman
+- Tienes la collection de Postman en el repositorio, puedes importarla para probar los endpoints de los microservicios.
+- [Lab intro microservice.postman_collection.json](Postman/Lab%20intro%20microservice.postman_collection.json)
 
-## Submission
 
-Once you finish the assignment, submit a URL link to your repository or your pull request in the field below.
+## 🧱 Estructura del proyecto
 
-<br>
+### 🔍 discovery-service
+- **Rol**: Servidor Eureka para descubrimiento de servicios.
+- **Tecnología**: Spring Cloud Eureka Server.
 
-## Instructions
+### 🎓 student-info-service
+- **Rol**: Gestiona la información básica de los estudiantes.
 
-Using Eureka and Rest Templates complete the following microservices application:
 
-- Create a `discovery-service` that will act as Eureka Discovery Server.
-- Create 3 services that will act as Eureka Clients:
+### 📊 grades-data-service
+- **Rol**: Gestiona las notas de los estudiantes por curso.
+`.
 
-  1. `student-info-service` will be responsible for holding the students’ information.
-     - **Models:**
-       - `Student`: that will hold the id, the student's name and the student's age.
-     - **Controllers:**
-       - `StudentController`: that will contain a single endpoint to get a student by id.
-     - **Repositories:**
-       - `StudentRepository`.
+### 📚 student-catalog-service
+- **Rol**: Orquestador. Se comunica con los otros servicios y construye un catálogo de cursos y notas con información detallada del estudiante.
 
-  2. `grades-data-service` will be responsible for holding the grades of each course.
-     - **Models:**
-       - `Course`: that will hold the course code and the course name.
-       - `Grade`: that will hold the id, grade and the studentId.
-     - **DTO:**
-       - `CourseGrade`.
-     - **Controllers:**
-       - `GradeController`: that will contain an endpoint to get all the grades.
-       - `CourseController`: that will contain an endpoint to get a course by course code and an endpoint to get the grades based on the course code.
-     - **Repositories:**
-       - `CourseRepository`.
-       - `GradeRepository`.
-     - **Services:**
-       - `CourseService`.
+---
 
-  3. `student-catalog-service` will be responsible for communicating with the other services and return a catalog containing the list of grades grouped by course name and showing all the students' information per grade.
-     - **Models:**
-       - `Catalog`: that will hold the course name and a list of the students' grades.
-       - `StudentGrade`: that will hold the student's name, age and the respective grade.
-       - All other needed models.
-     - **Controllers:**
-       - `CatalogController`: that will contain a single endpoint to get the students' catalog per course based on the course code.
+## 🚀 Cómo ejecutar
 
-**Note:** You can add data for each service using the `CommandLineRunner` for simpler data insertion and testing.
+1. Clona los repositorios de cada microservicio.:
+2. Crear una base de datos MySQL para cada microservicio.
+3. Configura el archivo `application.properties` de cada microservicio con los datos de conexión a la base de datos MySQL.
+4. Asegúrate de que el servidor Eureka esté corriendo.
+5. Asegúrate de que cada microservicio esté corriendo.
+6. Usa la collection de Postman para probar los endpoints de cada microservicio.
+
+
+## 👨‍💻 Autor
+-[DevJerryX](https://github.com/planetWeb252)
